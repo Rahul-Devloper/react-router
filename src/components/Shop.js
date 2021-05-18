@@ -15,7 +15,6 @@ const Shop = () => {
             );
 
             const items = await data.json();
-            console.log(items.name);
             setItems(items.items);
     };
 
