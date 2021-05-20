@@ -11,7 +11,7 @@ const Shop = () => {
     
     const fetchItems = async ()=>{
         const data = await fetch(
-            'https://pokeapi.co/api/v2/ability/'
+            'https://jsonplaceholder.typicode.com/posts'
             );
 
             const items = await data.json();
@@ -22,7 +22,8 @@ const Shop = () => {
 
     return (
         <div>
-           {items.map(item =>(
+           {
+           items.map(item =>(
                <h1>{item.name}</h1>
            ))}
         </div>
