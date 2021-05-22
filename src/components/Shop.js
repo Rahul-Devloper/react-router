@@ -2,26 +2,35 @@ import React, {useState, useEffect} from 'react';
 
 const Shop = () => {
     
-    useEffect(()=>{
-        fetchItems();
-    },[]);
 
     const [items, setItems] = useState([]);
 
-    
-    const fetchItems = async ()=>{
-        const data = await fetch(
-            'https://jsonplaceholder.typicode.com/posts'
-            );
+    useEffect(()=>{
+        fetch ('https://pokeapi.co/api/v2/pokemon/ditto')
+        .then(res=>{
+            return res.json
+        })
+        .then(itemData =>{
+            setItems(itemData)
+        })
+    },[]);
 
-            const items = await data.json();
-            setItems(items.items);
-    };
+    
+    // const fetchItems = async ()=>{
+    //     const data = await fetch(
+    //         'https://pokeapi.co/api/v2/pokemon/ditto'
+    //         );
+
+    //         const items = await data.json();
+    //         setItems(items.items);
+    // };
 
     
 
     return (
         <div>
+            <p>Loading the data</p>...
+
            {
            items.map(item =>(
                <h1>{item.name}</h1>
